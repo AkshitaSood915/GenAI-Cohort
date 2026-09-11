@@ -2,7 +2,7 @@ import { get_encoding } from 'tiktoken';
 
 const encoderForGpt2 = get_encoding('gpt2');
 
-const encoded = encoderForGpt2.encode("Hello, I am Akshita");
+const encoded = encoderForGpt2.encode("Hello, I am Akshita Sood");
 
 console.log(encoded);
 
