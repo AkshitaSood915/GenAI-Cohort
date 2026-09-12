@@ -110,8 +110,7 @@ async function main(prompt = '') {
 
       switch (functionName) {
         case 'executeCommandOnCli': {
-          try {
-            const toolResult = await executeCommandOnCli(input);
+         const toolResult = await executeCommandOnCli(input);
             console.log(`🛠️(${functionName}):${input}`, toolResult);
             MESSAGES_DB.push({
               role: 'developer',
@@ -120,12 +119,6 @@ async function main(prompt = '') {
                 output: toolResult,
               }),
             });
-          } catch (error) {
-            MESSAGES_DB.push({
-              role: 'developer',
-              content: JSON.stringify({ status: 'error', error }),
-            });
-          }
 
           continue;
         }
@@ -148,14 +141,14 @@ async function main(prompt = '') {
   }
 }
 
-// main(
-//   'What is weather of Patiala, Delhi, Goa and then write the output this on a beautifuyll webpage. create a new folder saying weather and create all HTML CSS file there and then run this on my browser',
-// );
+main(
+  'What is weather of Patiala, Delhi, Goa and then write the output this on a beautifuyll webpage. create a new folder saying weather and create all HTML CSS file there and then run this on my browser',
+);
 
 // main(
 //   'What is meaning of life? I am asking this because I need to wite this in an HTML file for my web dev project do not give me output as HTML as I can do this own my own just give me content in elboaratibve way for this',
 // );
 
-main(
-  'Build a funny functional design working TODO application and run on browser and store all files on todo folder',
-);
+// main(
+//   'Build a funny functional design working TODO application and run on browser and store all files on todo folder',
+// );
